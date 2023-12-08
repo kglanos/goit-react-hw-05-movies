@@ -1,5 +1,5 @@
 import React from 'react';
-/* import { FiSearch } from 'react-icons/fi'; */
+import { TbSearch  } from 'react-icons/tb';
 import { StyledSearchForm, StyledInput, StyledBtn } from './SearchForm.styled';
 
 const SearchForm = ({ onFormSubmit }) => {
@@ -14,7 +14,7 @@ const SearchForm = ({ onFormSubmit }) => {
 
       <StyledBtn type="submit">
         <span>
-          {/* <FiSearch size="20" color="black" /> */}
+          {<TbSearch  size="20" color="black" />}
         </span>
       </StyledBtn>
     </StyledSearchForm>

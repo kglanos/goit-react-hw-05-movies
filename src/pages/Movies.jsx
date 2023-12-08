@@ -5,18 +5,17 @@ import SearchForm from 'components/SearchForm/SearchForm';
 import MoviesList from 'components/MoviesList/MoviesList';
 import { getSearchMovies } from '../Api/Api';
 
-
 const Movies = () => {
   const [searchMovies, setSearchMovies] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
   const [searchParams, setSearchParams] = useSearchParams();
-  const queryValue = searchParams.get('query') || '';
+  const queryValue = searchParams.get('query');
 
-  const onFormSubmit = e => {
+  const onFormSubmit = (e) => {
     e.preventDefault();
-    const { value } = e.currentTarget.elements.searchKey;
+    const value = e.currentTarget.elements.searchKey.value;
     setSearchParams({ query: value });
     e.target.reset();
   };
@@ -42,14 +41,9 @@ const Movies = () => {
       {error && <div>Try to reload the page</div>}
       {isLoading && <Loader />}
       <SearchForm onFormSubmit={onFormSubmit} />
-          {searchMovies !== null ? (
-      searchMovies.length > 0 ? (
-        <MoviesList movies={searchMovies} />
-      ) : (
-        <p>No results found.</p>
-      )
-    ) : null}
+      {searchMovies !== null && <MoviesList movies={searchMovies} />}
     </div>
   );
 };
+
 export default Movies;

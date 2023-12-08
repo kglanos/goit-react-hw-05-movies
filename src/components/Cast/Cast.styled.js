@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const StyledCastsList = styled.ul`
   display: grid;
   max-width: calc(100vw - 48px);
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   grid-gap: 16px;
   margin-top: 0;
   margin-bottom: 0;
@@ -13,9 +13,16 @@ export const StyledCastsList = styled.ul`
   margin-right: auto;
 `;
 export const StyledCastsItem = styled.li`
-  /* width: calc((100% - 60px) / 4); */
-  min-height: 280px;
+  width: auto;
+  height: auto;
   list-style-type: none;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 16px;
+  padding: 0;
+  background-color: #fff;
+  border-radius: 4px;
+  overflow: hidden;
 `;
 export const StyledCastsImg = styled.img`
   max-width: 220px;

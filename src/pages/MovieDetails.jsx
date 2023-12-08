@@ -1,10 +1,10 @@
-import { useState, Suspense, useRef, useEffect } from 'react';
+import { useState, Suspense, useRef } from 'react';
 import { Outlet, useLocation, useParams } from 'react-router-dom';
 import ButtonBack from 'components/ButtonBack/ButtonBack';
 import Loader from 'components/Loader/Loader';
 import { getDetailsMovie } from '../Api/Api';
 import MoviesDetailsDescribe from 'components/MoviesDetailsDescribe/MoviesDetailsDescribe';
-
+const { useEffect } = require('react');
 
 const MovieDetails = () => {
   const [movies, setMovies] = useState({});
@@ -13,23 +13,22 @@ const MovieDetails = () => {
 
   const { movieId } = useParams();
   const location = useLocation();
-  const backLinkHref = useRef(location.state?.from) ?? '/movies';
+  const backLinkHref = useRef(location.state?.from ?? '/movies');
 
   useEffect(() => {
-    if (movieId) {
-      const getFilms = async () => {
-        setIsLoading(true);
-        try {
-          const response = await getDetailsMovie(movieId);
-          setMovies(response);
-        } catch (error) {
-          setError(error.message);
-        } finally {
-          setIsLoading(false);
-        }
-      };
-      getFilms();
-    }
+    if (!movieId) return;
+    const getFilms = async () => {
+      setIsLoading(true);
+      try {
+        const response = await getDetailsMovie(movieId);
+        setMovies(response);
+      } catch (error) {
+        setError(error.message);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    getFilms();
   }, [movieId]);
 
   return (

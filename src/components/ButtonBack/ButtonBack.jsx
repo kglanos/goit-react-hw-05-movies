@@ -1,13 +1,13 @@
-/* import { FaArrowRotateLeft } from 'react-icons/fa6'; */
+import { FaLeftLong  } from 'react-icons/fa6';
 import { StyledLink, StyledBtnBack } from './ButtonBack.styled';
 
-const BtnBack = ({ to, children }) => {
+const ButtonBack = ({ to, children }) => {
     return (
         <StyledBtnBack>
         <StyledLink to={to}>
-            {/* <FaArrowRotateLeft /> {children} */}
+            <FaLeftLong  /> {children}
         </StyledLink>
         </StyledBtnBack>
     );
     };
-export default BtnBack;
+export default ButtonBack;
