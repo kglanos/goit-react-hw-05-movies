@@ -5,6 +5,7 @@ export const StyledSearchForm = styled.form`
   width: 100%;
   max-width: 600px;
   gap: 10px;
+  margin-bottom: 10px;
 `;
 export const StyledInput = styled.input`
   display: inline-block;

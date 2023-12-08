@@ -12,7 +12,7 @@ const { useEffect } = require('react');
 
 const Cast = () => {
   const [actors, setActors] = useState(null);
-  const [isloading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
   const { movieId } = useParams();
@@ -37,7 +37,7 @@ const Cast = () => {
   return (
     <>
       {error && <div>Try to reload the page</div>}
-      {isloading && <Loader />}
+      {isLoading && <Loader />}
 
       <StyledCastsList>
         {actors &&

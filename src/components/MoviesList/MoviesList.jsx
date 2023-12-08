@@ -6,7 +6,7 @@ const MoviesList = ({ movies }) => {
 
     return (
         <StyledMovList>
-            <ul>
+            <>
                 {movies.map(({ id, title, poster_path }) => (
                 <StyledUl key={id}>
                     <StyledLink to={`/movies/${id}`} state={{ from: location }}>
@@ -18,7 +18,7 @@ const MoviesList = ({ movies }) => {
                     </StyledLink>
                 </StyledUl>
                 ))}
-            </ul>
+            </>
         </StyledMovList>
     );
 };
