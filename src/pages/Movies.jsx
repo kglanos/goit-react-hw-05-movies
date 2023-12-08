@@ -20,23 +20,23 @@ const Movies = () => {
     e.target.reset();
   };
 
-  const getFilms = async () => {
-    setIsLoading(true);
-    try {
-      const response = await getSearchMovies(queryValue);
-      setSearchMovies(response);
-    } catch (error) {
-      setError(error.message);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-  
   useEffect(() => {
+    const getFilms = async () => {
+      setIsLoading(true);
+      try {
+        const response = await getSearchMovies(queryValue);
+        setSearchMovies(response);
+      } catch (error) {
+        setError(error.message);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+  
     if (queryValue) {
       getFilms();
     }
-  }, [queryValue]);
+  }, [queryValue]); 
 
   return (
     <div>
