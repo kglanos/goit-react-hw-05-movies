@@ -8,7 +8,7 @@ import MoviesDetailsDescribe from 'components/MoviesDetailsDescribe/MoviesDetail
 
 const MovieDetails = () => {
   const [movies, setMovies] = useState({});
-  const [isloading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
   const { movieId } = useParams();
@@ -35,7 +35,7 @@ const MovieDetails = () => {
   return (
     <div>
       {error && <div>Try to reload the page</div>}
-      {isloading && <Loader />}
+      {isLoading && <Loader />}
       <ButtonBack to={backLinkHref.current}> Go back </ButtonBack>
       <MoviesDetailsDescribe movies={movies} />
 

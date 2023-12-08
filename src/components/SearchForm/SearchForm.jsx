@@ -1,10 +1,10 @@
 import React from 'react';
 /* import { FiSearch } from 'react-icons/fi'; */
-import { StyledSerchForm, StyledInput, StyledBtn } from './SearchForm.styled';
+import { StyledSearchForm, StyledInput, StyledBtn } from './SearchForm.styled';
 
-const SearchForm = ({ onformSubmit }) => {
+const SearchForm = ({ onFormSubmit }) => {
   return (
-    <StyledSerchForm onSubmit={onformSubmit}>
+    <StyledSearchForm onSubmit={onFormSubmit}>
       <StyledInput
         name="searchKey"
         type="text"
@@ -17,7 +17,7 @@ const SearchForm = ({ onformSubmit }) => {
           {/* <FiSearch size="20" color="black" /> */}
         </span>
       </StyledBtn>
-    </StyledSerchForm>
+    </StyledSearchForm>
   );
 };
 export default SearchForm;

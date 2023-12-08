@@ -1,26 +1,28 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import Loader from 'components/Loader/Loader';
 import SearchForm from 'components/SearchForm/SearchForm';
 import MoviesList from 'components/MoviesList/MoviesList';
 import { getSearchMovies } from '../Api/Api';
 
+
 const Movies = () => {
   const [searchMovies, setSearchMovies] = useState(null);
-  const [isloading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
   const [searchParams, setSearchParams] = useSearchParams();
-  const queryValue = searchParams.get('query');
+  const queryValue = searchParams.get('query') || '';
 
-  const onformSubmit = e => {
+  const onFormSubmit = e => {
     e.preventDefault();
-    const value = e.currentTarget.elements.searchKey.value;
+    const { value } = e.currentTarget.elements.searchKey;
     setSearchParams({ query: value });
     e.target.reset();
   };
 
   useEffect(() => {
+    if (!queryValue) return;
     const getFilms = async () => {
       setIsLoading(true);
       try {
@@ -32,18 +34,21 @@ const Movies = () => {
         setIsLoading(false);
       }
     };
-  
-    if (queryValue) {
-      getFilms();
-    }
-  }, [queryValue]); 
+    getFilms();
+  }, [queryValue]);
 
   return (
     <div>
       {error && <div>Try to reload the page</div>}
-      {isloading && <Loader />}
-      <SearchForm onformSubmit={onformSubmit} />
-      {searchMovies !== null && <MoviesList movies={searchMovies} />}
+      {isLoading && <Loader />}
+      <SearchForm onFormSubmit={onFormSubmit} />
+          {searchMovies !== null ? (
+      searchMovies.length > 0 ? (
+        <MoviesList movies={searchMovies} />
+      ) : (
+        <p>No results found.</p>
+      )
+    ) : null}
     </div>
   );
 };
