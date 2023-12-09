@@ -1,4 +1,5 @@
 import { StyledNotFound } from './NotFound.styled';
+
 const NotFound = () => {
   return (
     <StyledNotFound>

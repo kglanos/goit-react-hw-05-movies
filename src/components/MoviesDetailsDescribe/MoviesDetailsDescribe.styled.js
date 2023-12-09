@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-export const StyleDetailsdescribe = styled.div`
+export const StyleDetailsDescribe = styled.div`
   display: flex;
   justify-content: start;
   align-items: center;
@@ -8,7 +8,7 @@ export const StyleDetailsdescribe = styled.div`
   list-style: none;
   padding-bottom: 15px;
   border-bottom: 1px solid black;
-  color: black;
+  color: white;
 `;
 export const LinkListCastReviews = styled.ul`
   display: flex;

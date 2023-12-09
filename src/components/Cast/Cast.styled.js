@@ -13,7 +13,7 @@ export const StyledCastsList = styled.ul`
   margin-right: auto;
 `;
 export const StyledCastsItem = styled.li`
-  width: auto;
+  width: 203px;
   height: auto;
   list-style-type: none;
   margin-left: auto;

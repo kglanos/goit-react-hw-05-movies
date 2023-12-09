@@ -15,7 +15,7 @@ export const StyledMovList = styled.div`
 `;
 
 export const StyledUl = styled.ul`
-width: auto;
+  width: 200px;
   height: auto;
   list-style-type: none;
   margin-left: auto;
