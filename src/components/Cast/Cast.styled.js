@@ -25,6 +25,7 @@ export const StyledCastsItem = styled.li`
   overflow: hidden;
 `;
 export const StyledCastsImg = styled.img`
+  background-position: center;
   max-width: 220px;
   height: 305px;
   box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.3),
